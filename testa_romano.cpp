@@ -32,7 +32,7 @@ TEST_CASE("Numeros romanos de dois algarismos", "[romanos]") {
     REQUIRE( romanos_para_decimal("MD") == 1500 );
 }
 
-TEST_CASE("Numeros romanos de três algarismos", "[romanos]") {
+TEST_CASE("Numeros romanos de tres algarismos", "[romanos]") {
     REQUIRE( romanos_para_decimal("III") == 3 );
     REQUIRE( romanos_para_decimal("VII") == 7 );
     REQUIRE( romanos_para_decimal("XVI") == 16 );
@@ -40,5 +40,10 @@ TEST_CASE("Numeros romanos de três algarismos", "[romanos]") {
     REQUIRE( romanos_para_decimal("XCV") == 95 );
     REQUIRE( romanos_para_decimal("DXC") == 590 );
     REQUIRE( romanos_para_decimal("MLV") == 1055 );
+}
+
+TEST_CASE("Numeros invalidos", "[romanos]") {
+    REQUIRE( romanos_para_decimal("AAA") == -1 );
+    REQUIRE( romanos_para_decimal("xx") == -1 );
 }
 

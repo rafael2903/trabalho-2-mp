@@ -24,7 +24,10 @@ int romanos_para_decimal(string num_romano) {
         anterior = atual;
     }
 
-    return acumulador;
+    if (acumulador >= 3000)
+        return -1;
+    else
+        return acumulador;
 }
 
 int converter_algarismo(char algarismo) {

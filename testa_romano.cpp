@@ -47,6 +47,7 @@ TEST_CASE("Numeros romanos de tres algarismos", "[romanos]") {
 TEST_CASE("Numeros invalidos", "[romanos]") {
     REQUIRE(romanos_para_decimal("AAA") == -1);
     REQUIRE(romanos_para_decimal("xx") == -1);
+    REQUIRE( romanos_para_decimal("MMMI") == -1 );
 }
 
 

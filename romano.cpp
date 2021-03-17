@@ -1,3 +1,5 @@
+// Copyright 2021 Rafael Rodrigues
+
 #include "romano.hpp"
 
 // I = 1, V = 5, X = 10, L = 50, C = 100, D = 500, M = 1000
@@ -14,9 +16,9 @@ int romanos_para_decimal(string num_romano) {
             return -1;
         }
 
-        if (atual < anterior) 
+        if (atual < anterior)
             acumulador -= atual;
-        else 
+        else
             acumulador += atual;
 
         anterior = atual;

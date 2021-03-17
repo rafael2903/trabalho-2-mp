@@ -5,28 +5,34 @@ int romanos_para_decimal(string num_romano) {
     int acumulador = 0;
     int aux = 0;
 
-    // for (int i = 0; i < num_romano.length(); i++) {
-        
-    // }
+    for (int i = 0; i < num_romano.length(); i++) {
+        // try {
+        //     converter_algarismo(num_romano[i]);
+        // }
+        // catch (...) {
+        //     return -1;
+        // }
+    }
 
     return 1;
 }
 
 int converter_algarismo(char algarismo) {
-    if (algarismo == 'I')
-        return 1;
-    else if (algarismo == 'V')
-        return 5;
-    else if (algarismo == 'X')
-        return 10;
-    else if (algarismo == 'L')
-        return 50;
-    else if (algarismo == 'C')
-        return 100;
-    else if (algarismo == 'D')
-        return 500;
-    else if (algarismo == 'M')
-        return 1000;
-    else
-        throw invalid_argument("Argumento invalido.");
+    switch (algarismo) {
+        case 'I': return 1;
+            break;
+        case 'V': return 5;
+            break;
+        case 'X': return 10;
+            break;
+        case 'L': return 50;
+            break;
+        case 'C': return 100;
+            break;
+        case 'D': return 500;
+            break;
+        case 'M': return 1000;
+            break;
+        default: throw invalid_argument("Argumento invalido.");
+    }
 }

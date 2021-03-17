@@ -3,18 +3,26 @@
 // I = 1, V = 5, X = 10, L = 50, C = 100, D = 500, M = 1000
 int romanos_para_decimal(string num_romano) {
     int acumulador = 0;
-    int aux = 0;
+    int atual = 0;
+    int anterior = 0;
 
-    for (int i = 0; i < num_romano.length(); i++) {
-        // try {
-        //     converter_algarismo(num_romano[i]);
-        // }
-        // catch (...) {
-        //     return -1;
-        // }
+    for (int i = num_romano.length() - 1; i >= 0; i--) {
+        try {
+            atual = converter_algarismo(num_romano[i]);
+        }
+        catch (...) {
+            return -1;
+        }
+
+        if (atual < anterior) 
+            acumulador -= atual;
+        else 
+            acumulador += atual;
+
+        anterior = atual;
     }
 
-    return 1;
+    return acumulador;
 }
 
 int converter_algarismo(char algarismo) {

@@ -8,6 +8,9 @@ int romanos_para_decimal(string num_romano) {
     int atual = 0;
     int anterior = 0;
 
+    if (num_romano.length() > 30)
+        return -1;
+
     for (int i = num_romano.length() - 1; i >= 0; i--) {
         try {
             atual = converter_algarismo(num_romano[i]);

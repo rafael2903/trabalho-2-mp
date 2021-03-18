@@ -50,17 +50,20 @@ TEST_CASE("Numeros invalidos", "[romanos]") {
     REQUIRE(romanos_para_decimal("MMMI") == -1);
     REQUIRE(romanos_para_decimal("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIII") == -1);
     REQUIRE(romanos_para_decimal("IC") == -1);
+    REQUIRE(romanos_para_decimal("XD") == -1);
 }
 
-
 /*
-A letra I é utilizada somente antes do V e do X, por exemplo: IV = 4; IX = 9.
-A letra X é utilizada somente antes do L e do C, por exemplo: XL = 40; XC = 90
-A letra C é utilizada somente antes do D e do M, por exemplo, CD = 400; CM = 900
+
+I = 1, V = 5, X = 10, L = 50, C = 100, D = 500, M = 1000
+
+A letra I é utilizada somente antes do I, V, e do X, por exemplo: IV = 4; IX = 9; II = 2.
+A letra X é utilizada somente antes do I, V, X, L e do C, por exemplo: XL = 40; XC = 90.
+
 As letras I, X, C e M são agrupadas somente seguidas por três vezes, por exemplo: III = 3; XXX = 30.
+letras V, L e D não podem ser repetidas.
 
 Duas letras diferentes com o menor antes do maior, subtraem-se os seus valores, por exemplo: IV = 4; IX = 9.
-Duas letras diferentes com o maior antes do menor, somam-se os seus valores, por exemplo: VI = 6; XI = 11.
-Se entre duas letras quaisquer existe outra menor, o valor desta pertencerá a letra seguinte a ela, por exemplo: XIX = 19; LIV = 54.
+Duas letras diferentes com o maior ou igual antes do menor, somam-se os seus valores, por exemplo: VI = 6; XI = 11; XX = 20.
 
 */

@@ -19,7 +19,10 @@ int romanos_para_decimal(string num_romano) {
             return -1;
         }
 
-        if (atual == 1 && anterior != 1 && anterior != 5 && anterior != 10 && anterior != 0)
+        if (atual == 1 && anterior > 10)
+            return -1;
+
+        if (atual == 10 && (anterior == 500 || anterior == 1000))
             return -1;
 
         if (atual < anterior)

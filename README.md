@@ -3,7 +3,7 @@
 - Para rodar o programa, utilize o comando make
 - Para rodar o programa, juntamente com os programas de verificação, utilize o comando make verify
 
-## Documentação testes
+## Documentação dos testes
 
 - O TEST_CASE "Algarismo romano" foi implementado para verificar se a função auxiliar "converter_algarismo" funciona corretamente, convertendo os algarismos básicos I, V, X, L, C, D e M em inteiros.
 

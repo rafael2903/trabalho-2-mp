@@ -34,7 +34,7 @@ int romanos_para_decimal(string num_romano) {
         if (atual == 10 && (anterior == 500 || anterior == 1000))
             return -1;
 
-        // letras V, L e D não podem ser repetidas.
+        // As letras V, L e D não podem ser repetidas.
         if ((atual == 5 || atual == 50 || atual == 500) && atual == anterior)
             return -1;
 
@@ -71,7 +71,7 @@ int romanos_para_decimal(string num_romano) {
 
         anterior = atual;
     }
-    
+
     // O número em algarismos romanos poderá ser no máximo 3000
     if (acumulador > 3000)
         return -1;

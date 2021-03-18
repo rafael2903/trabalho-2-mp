@@ -3,6 +3,7 @@
 #include "romano.hpp"
 
 // I = 1, V = 5, X = 10, L = 50, C = 100, D = 500, M = 1000
+// letras V, L e D não podem ser repetidas.
 int romanos_para_decimal(string num_romano) {
     int acumulador = 0;
     int atual = 0;
@@ -19,10 +20,16 @@ int romanos_para_decimal(string num_romano) {
             return -1;
         }
 
+        // A letra I é utilizada somente antes do I, V, e do X
         if (atual == 1 && anterior > 10)
             return -1;
 
+        // A letra X é utilizada somente antes do I, V, X, L e do C
         if (atual == 10 && (anterior == 500 || anterior == 1000))
+            return -1;
+
+        // letras V, L e D não podem ser repetidas.
+        if ((atual == 5 || atual == 50 || atual == 500) && atual == anterior)
             return -1;
 
         if (atual < anterior)

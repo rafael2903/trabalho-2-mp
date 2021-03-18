@@ -15,9 +15,12 @@ int romanos_para_decimal(string num_romano) {
         try {
             atual = converter_algarismo(num_romano[i]);
         }
-        catch (...) {
+        catch (invalid_argument &excecao) {
             return -1;
         }
+
+        if (atual == 1 && anterior != 1 && anterior != 5 && anterior != 10 && anterior != 0)
+            return -1;
 
         if (atual < anterior)
             acumulador -= atual;
@@ -27,7 +30,7 @@ int romanos_para_decimal(string num_romano) {
         anterior = atual;
     }
 
-    if (acumulador >= 3000)
+    if (acumulador > 3000)
         return -1;
     else
         return acumulador;

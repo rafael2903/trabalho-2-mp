@@ -3,16 +3,18 @@
 #include "romano.hpp"
 
 // I = 1, V = 5, X = 10, L = 50, C = 100, D = 500, M = 1000
-// letras V, L e D não podem ser repetidas.
+
 int romanos_para_decimal(string num_romano) {
-    int acumulador = 0;
     int atual = 0;
     int anterior = 0;
+    int acumulador = 0;
+
     int count1 = 0;
     int count10 = 0;
     int count100 = 0;
     int count1000 = 0;
 
+    // A função deverá pegar uma string de tamanho até 30 caracteres
     if (num_romano.length() > 30)
         return -1;
 
@@ -56,20 +58,21 @@ int romanos_para_decimal(string num_romano) {
             count1000++;
         else
             count1000 = 0;
-        
+
         if (count1 == 4 || count10 == 4 || count100 == 4 || count1000 == 4)
             return -1;
 
-        // Duas letras diferentes com o menor antes do maior, subtraem-se os seus valores.
-        // Duas letras diferentes com o maior ou igual antes do menor, somam-se os seus valores.
         if (atual < anterior)
+        // Duas letras diferentes com o menor antes do maior, subtraem-se os seus valores.
             acumulador -= atual;
         else
+        // Duas letras diferentes com o maior ou igual antes do menor, somam-se os seus valores.
             acumulador += atual;
 
         anterior = atual;
     }
-
+    
+    // O número em algarismos romanos poderá ser no máximo 3000
     if (acumulador > 3000)
         return -1;
     else

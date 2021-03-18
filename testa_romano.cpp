@@ -54,18 +54,3 @@ TEST_CASE("Numeros invalidos", "[romanos]") {
     REQUIRE(romanos_para_decimal("VV") == -1);
     REQUIRE(romanos_para_decimal("XXXX") == -1);
 }
-
-/*
-
-I = 1, V = 5, X = 10, L = 50, C = 100, D = 500, M = 1000
-
-A letra I é utilizada somente antes do I, V, e do X.
-A letra X é utilizada somente antes do I, V, X, L e do C.
-
-letras V, L e D não podem ser repetidas.
-As letras I, X, C e M são agrupadas somente seguidas por três vezes.
-
-Duas letras diferentes com o menor antes do maior, subtraem-se os seus valores.
-Duas letras diferentes com o maior ou igual antes do menor, somam-se os seus valores.
-
-*/

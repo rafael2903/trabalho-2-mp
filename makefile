@@ -1,4 +1,4 @@
-FLAGS=
+FLAGS= -Wall -pedantic
 
 run: all
 	./program

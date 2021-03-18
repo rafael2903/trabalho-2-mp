@@ -8,6 +8,10 @@ int romanos_para_decimal(string num_romano) {
     int acumulador = 0;
     int atual = 0;
     int anterior = 0;
+    int count1 = 0;
+    int count10 = 0;
+    int count100 = 0;
+    int count1000 = 0;
 
     if (num_romano.length() > 30)
         return -1;
@@ -32,6 +36,32 @@ int romanos_para_decimal(string num_romano) {
         if ((atual == 5 || atual == 50 || atual == 500) && atual == anterior)
             return -1;
 
+        // As letras I, X, C e M são agrupadas somente seguidas por três vezes
+        if (atual == 1)
+            count1++;
+        else
+            count1 = 0;
+
+        if (atual == 10)
+            count10++;
+        else
+            count10 = 0;
+
+        if (atual == 100)
+            count100++;
+        else
+            count100 = 0;
+
+        if (atual == 1000)
+            count1000++;
+        else
+            count1000 = 0;
+        
+        if (count1 == 4 || count10 == 4 || count100 == 4 || count1000 == 4)
+            return -1;
+
+        // Duas letras diferentes com o menor antes do maior, subtraem-se os seus valores.
+        // Duas letras diferentes com o maior ou igual antes do menor, somam-se os seus valores.
         if (atual < anterior)
             acumulador -= atual;
         else

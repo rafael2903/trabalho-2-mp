@@ -3,8 +3,8 @@ FLAGS= -Wall -pedantic
 run: all
 	./program
 
-all: romano.cpp testa_romano.cpp
-	g++ -o program romano.cpp testa_romano.cpp $(FLAGS) -I.
+all: romano.c testa_romano.c
+	g++ -o program romano.c testa_romano.c $(FLAGS) -I.
 
 verify: all
 	valgrind --leak-check=full ./program

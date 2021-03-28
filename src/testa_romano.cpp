@@ -1,8 +1,8 @@
 // Copyright 2021 Rafael Rodrigues
 
 #define CATCH_CONFIG_MAIN
-#include "catch.hpp"
-#include "romano.hpp"
+#include "../includes/catch.hpp"
+#include "../includes/romano.hpp"
 
 TEST_CASE("Algarismo romano", "[romanos]") {
     REQUIRE(converter_algarismo('I') == 1);
